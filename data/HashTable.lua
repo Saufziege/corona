@@ -166,3 +166,16 @@ function HashTable:tostring()
 	str = str.."\n]"
 	return str
 end
+
+-- Removes any mapping from this HashTable if present.
+-- @return 		the previous value associated with removed key, or nil if there was no mapping.
+-- Example:
+-- 			while not foo:isEmpty() do
+--				print(foo:crop());
+-- 			end
+function HashTable:crop()
+	for k,v in pairs(self.data) do
+		return self:remove(k)
+	end
+	return nil
+end
